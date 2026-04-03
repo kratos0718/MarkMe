@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production Build
+dist/
+build/
+out/
+
+# Environment Variables (Keep these private!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE / Editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Backend debug/test scripts (local dev only)
+Backend/test_*.js
+Backend/debug_*.js
+Backend/fix_*.js
+Backend/get_*.js
+Backend/checkUser.js
+Backend/direct_test.log
+
+# Uploaded user images (stored in Cloudinary, not git)
+Backend/uploads/
