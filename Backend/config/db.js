@@ -23,12 +23,8 @@ const connectDB = async () => {
         console.log('✓ MongoDB Connected Successfully');
     } catch (error) {
         console.error('✗ MongoDB Connection Failed:', error.message);
-        console.error('\n⚠️  TROUBLESHOOTING STEPS:');
-        console.error('1. Verify MONGO_URI is correct in .env file');
-        console.error('2. Whitelist your IP in MongoDB Atlas: https://cloud.mongodb.com/v2/network/access');
-        console.error('3. Ensure your network allows outbound connections to MongoDB');
-        console.error('4. Check if MongoDB credentials are valid\n');
-        process.exit(1);
+        // Do NOT call process.exit() — it kills Vercel serverless functions
+        throw error;
     }
 };
 

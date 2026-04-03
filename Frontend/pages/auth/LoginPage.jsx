@@ -61,13 +61,18 @@ const LoginPanel = ({ roleKey, cfg, navigate }) => {
     try {
       setDemoLoading(true);
       setApiError("");
-      // Seed demo accounts first (idempotent)
-      await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:5000/api"}/auth/seed-demo`);
+      const base = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+      // Seed demo accounts first (idempotent — safe to call every time)
+      const seedRes = await fetch(`${base}/auth/seed-demo`);
+      if (!seedRes.ok) {
+        const msg = await seedRes.text();
+        throw new Error(`Seed failed (${seedRes.status}): ${msg}`);
+      }
       const userData = await login({ identifier: cfg.demoEmail, password: DEMO_PASS, role: roleKey });
       const dest = userData.role === "student" ? "/student" : userData.role === "faculty" ? "/faculty" : "/admin";
       navigate(dest, { replace: true });
     } catch (err) {
-      setApiError("Demo login failed — is the backend running?");
+      setApiError(err?.message || "Demo login failed");
     } finally {
       setDemoLoading(false);
     }
