@@ -40,9 +40,14 @@ app.get('/', (req, res) => {
     res.json({
         name: 'MarkMe Smart Attendance API',
         author: 'Abhinav Tarigoopula',
-        institution: 'GITAM University',
         status: 'running',
-        version: '2.0'
+        version: '2.0',
+        env: {
+            mongo: !!process.env.MONGO_URI,
+            jwt: !!process.env.JWT_SECRET,
+            cloudinary: !!process.env.CLOUDINARY_CLOUD_NAME,
+            node_env: process.env.NODE_ENV || 'not set'
+        }
     });
 });
 
