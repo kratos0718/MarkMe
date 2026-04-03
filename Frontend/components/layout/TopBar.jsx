@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import MarkMeLogo from "../common/MarkMeLogo.jsx";
 
 const TopBar = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const TopBar = () => {
     <header className="topbar">
       {/* Logo */}
       <div className="topbar-logo" onClick={() => navigate("/")}>
-        <div className="topbar-icon">⬡</div>
+        <MarkMeLogo size={36} />
         <div>
           <div className="topbar-title">MarkMe</div>
           <div className="topbar-subtitle">Smart Attendance · Anti-Proxy</div>

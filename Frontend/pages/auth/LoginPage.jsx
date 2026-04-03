@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../services/authService.js";
 import Spinner from "../../components/common/Spinner.jsx";
+import MarkMeLogo from "../../components/common/MarkMeLogo.jsx";
 
 const ROLES = {
   student: {
@@ -332,14 +333,9 @@ const LoginPage = () => {
     }}>
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: "2rem", animation: "fadeInUp 0.5s ease both" }}>
-        <div style={{
-          width: "60px", height: "60px",
-          background: "linear-gradient(135deg, var(--gold-deep), var(--gold-bright))",
-          borderRadius: "14px",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: "1.6rem", margin: "0 auto 0.9rem",
-          boxShadow: "0 0 28px var(--glow-gold)",
-        }}>⬡</div>
+        <div style={{ margin: "0 auto 0.9rem", display: "flex", justifyContent: "center" }}>
+          <MarkMeLogo size={64} />
+        </div>
 
         <div style={{
           fontFamily: "'Orbitron', monospace",

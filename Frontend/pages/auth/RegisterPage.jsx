@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MarkMeLogo from "../../components/common/MarkMeLogo.jsx";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { register } from "../../services/authService.js";
 import Spinner from "../../components/common/Spinner.jsx";
@@ -75,15 +76,9 @@ const RegisterPage = () => {
       <div className="card auth-card">
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "1.5rem", paddingBottom: "1rem", borderBottom: "1px solid rgba(251,191,36,0.1)" }}>
-          <div style={{
-            width: "56px", height: "56px",
-            background: "linear-gradient(135deg, var(--gold-deep), var(--gold-bright))",
-            borderRadius: "10px",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: "1.6rem",
-            margin: "0 auto 0.75rem",
-            boxShadow: "0 0 20px var(--glow-gold)"
-          }}>{cfg.icon}</div>
+          <div style={{ margin: "0 auto 0.75rem", display: "flex", justifyContent: "center" }}>
+            <MarkMeLogo size={56} />
+          </div>
           <div className="auth-title">{cfg.label} Registration</div>
           <div className="auth-subtitle">Create your MarkMe account</div>
         </div>

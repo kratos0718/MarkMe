@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import MarkMeLogo from "../components/common/MarkMeLogo.jsx";
 
 /* Holographic 3D canvas — animated grid floor + floating particles */
 const HoloCanvas = () => {
@@ -373,15 +374,7 @@ const LandingPage = () => {
             justifyContent: "center",
             pointerEvents: "none"
           }}>
-            <div style={{
-              fontFamily: "'Orbitron', monospace",
-              fontSize: "2.5rem",
-              fontWeight: 900,
-              color: "var(--gold-bright)",
-              textShadow: "0 0 20px var(--glow-gold), 0 0 50px rgba(251,191,36,0.2)",
-              letterSpacing: "0.1em",
-              animation: "flicker 10s ease-in-out infinite"
-            }}>⬡</div>
+            <MarkMeLogo size={90} style={{ animation: "flicker 10s ease-in-out infinite", filter: "drop-shadow(0 0 18px rgba(147,51,234,0.5))" }} />
             <div style={{
               fontFamily: "'Orbitron', monospace",
               fontSize: "0.65rem",
