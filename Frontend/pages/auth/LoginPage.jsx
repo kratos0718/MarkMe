@@ -10,6 +10,7 @@ const ROLES = {
     icon: "🎓",
     color: "#4f46e5",
     desc: "Mark attendance with face + GPS + session key.",
+    hint: "Auto-verify, then use session key 123456.",
     demoEmail: "demo.student@gitam.edu",
   },
   faculty: {
@@ -17,6 +18,7 @@ const ROLES = {
     icon: "👩‍🏫",
     color: "#0ea5e9",
     desc: "Start a session and watch attendance come in live.",
+    hint: "Allow location access when your browser asks.",
     demoEmail: "demo.faculty@gitam.edu",
   },
   admin: {
@@ -24,6 +26,7 @@ const ROLES = {
     icon: "⚙️",
     color: "#f97316",
     desc: "Manage students, faculty, classrooms and reports.",
+    hint: "Full read/write access to demo data.",
     demoEmail: "demo.admin@gitam.edu",
   },
 };
@@ -127,6 +130,12 @@ const DemoCard = ({ roleKey, cfg, navigate }) => {
         >
           {loading ? (<><Spinner /><span>Opening…</span></>) : `Enter as ${cfg.label}`}
         </button>
+
+        {cfg.hint && (
+          <div style={{ fontSize: "0.75rem", color: "var(--text-dim)", marginTop: "0.6rem", lineHeight: 1.4, textAlign: "center" }}>
+            {cfg.hint}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -157,6 +166,9 @@ const LoginPage = () => {
         </h1>
         <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", margin: 0, maxWidth: "30rem" }}>
           Pick a role to explore the demo — no account or setup needed.
+        </p>
+        <p style={{ fontSize: "0.8rem", color: "var(--text-dim)", margin: "0.5rem auto 0", maxWidth: "30rem" }}>
+          The first click may take a few seconds while the server wakes up.
         </p>
       </div>
 
