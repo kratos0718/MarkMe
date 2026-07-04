@@ -75,7 +75,7 @@ const RegisterPage = () => {
     <div className="auth-container" style={{ maxWidth: "480px" }}>
       <div className="card auth-card">
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "1.5rem", paddingBottom: "1rem", borderBottom: "1px solid rgba(251,191,36,0.1)" }}>
+        <div style={{ textAlign: "center", marginBottom: "1.5rem", paddingBottom: "1rem", borderBottom: "1px solid rgba(79,70,229,0.1)" }}>
           <div style={{ margin: "0 auto 0.75rem", display: "flex", justifyContent: "center" }}>
             <MarkMeLogo size={56} />
           </div>
@@ -174,12 +174,12 @@ const RegisterPage = () => {
                     {/* Photo number badge */}
                     <div style={{
                       position: "absolute", bottom: "2px", left: "2px",
-                      background: "rgba(251,191,36,0.85)",
+                      background: "rgba(79,70,229,0.85)",
                       color: "var(--black-pure)",
                       fontSize: "0.55rem", fontWeight: 700,
                       padding: "1px 4px",
                       borderRadius: "2px",
-                      fontFamily: "'Orbitron', monospace"
+                      fontFamily: "inherit"
                     }}>#{index + 1}</div>
                   </div>
                 ))}
@@ -188,12 +188,12 @@ const RegisterPage = () => {
                 {Array.from({ length: 3 - imagePreviews.length }).map((_, i) => (
                   <div key={`empty-${i}`} style={{
                     width: "70px", height: "70px",
-                    border: "2px dashed rgba(251,191,36,0.15)",
+                    border: "2px dashed rgba(79,70,229,0.15)",
                     borderRadius: "4px",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     color: "var(--text-dim)",
                     fontSize: "0.65rem",
-                    fontFamily: "'Rajdhani', sans-serif"
+                    fontFamily: "inherit"
                   }}>EMPTY</div>
                 ))}
               </div>
@@ -221,7 +221,7 @@ const RegisterPage = () => {
             {isSubmitting ? (
               <><Spinner /><span style={{ marginLeft: 8 }}>Creating Account…</span></>
             ) : (
-              `▶ Register as ${cfg.label}`
+              `Register as ${cfg.label}`
             )}
           </button>
         </form>
@@ -230,7 +230,7 @@ const RegisterPage = () => {
           marginTop: "1rem",
           textAlign: "center",
           paddingTop: "0.75rem",
-          borderTop: "1px solid rgba(251,191,36,0.08)"
+          borderTop: "1px solid rgba(79,70,229,0.08)"
         }}>
           <span className="helper-text">
             Already registered?{" "}
@@ -241,7 +241,7 @@ const RegisterPage = () => {
 
       <div style={{
         textAlign: "center", marginTop: "1rem",
-        fontFamily: "'Rajdhani', sans-serif",
+        fontFamily: "inherit",
         fontSize: "0.68rem", letterSpacing: "0.12em",
         textTransform: "uppercase", color: "var(--text-dim)"
       }}>

@@ -40,13 +40,13 @@ const SessionKeyDisplay = ({ sessionKey }) => (
   }}>
     <div className="holo-scan" />
     <div style={{
-      fontFamily: "'Rajdhani', sans-serif",
+      fontFamily: "inherit",
       fontSize: "0.68rem", letterSpacing: "0.2em",
       color: "var(--text-muted)", textTransform: "uppercase",
       marginBottom: "0.5rem"
     }}>SESSION KEY — SHARE WITH STUDENTS</div>
     <div style={{
-      fontFamily: "'Orbitron', monospace",
+      fontFamily: "inherit",
       fontSize: "2.8rem", fontWeight: 900,
       letterSpacing: "0.3em",
       background: "linear-gradient(135deg, var(--gold-bright), var(--gold-mid), var(--gold-bright))",
@@ -145,7 +145,7 @@ const FacultyDashboard = () => {
         marginBottom: "1.5rem",
         display: "flex", alignItems: "center", gap: "1rem",
         paddingBottom: "1rem",
-        borderBottom: "1px solid rgba(251,191,36,0.1)"
+        borderBottom: "1px solid rgba(79,70,229,0.1)"
       }}>
         <div style={{
           width: "44px", height: "44px",
@@ -156,12 +156,12 @@ const FacultyDashboard = () => {
         }}>👨‍🏫</div>
         <div>
           <div style={{
-            fontFamily: "'Orbitron', monospace",
+            fontFamily: "inherit",
             fontSize: "1.1rem", fontWeight: 700,
             color: "var(--gold-bright)", letterSpacing: "0.06em"
           }}>Faculty Portal</div>
           <div style={{
-            fontFamily: "'Rajdhani', sans-serif",
+            fontFamily: "inherit",
             fontSize: "0.78rem", color: "var(--text-muted)",
             letterSpacing: "0.05em", textTransform: "uppercase"
           }}>MarkMe · Session Management</div>
@@ -197,20 +197,20 @@ const FacultyDashboard = () => {
                 display: "flex", gap: "1rem", marginTop: "0.75rem",
                 padding: "0.75rem",
                 background: "rgba(0,0,0,0.4)",
-                border: "1px solid rgba(251,191,36,0.08)",
+                border: "1px solid rgba(79,70,229,0.08)",
                 borderRadius: "4px"
               }}>
                 <div>
-                  <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "0.6rem", color: "var(--text-muted)", letterSpacing: "0.1em", marginBottom: "0.15rem" }}>SUBJECT</div>
-                  <div style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.9rem", color: "var(--text-primary)", fontWeight: 600 }}>{currentSession.subject}</div>
+                  <div style={{ fontFamily: "inherit", fontSize: "0.6rem", color: "var(--text-muted)", letterSpacing: "0.1em", marginBottom: "0.15rem" }}>SUBJECT</div>
+                  <div style={{ fontFamily: "inherit", fontSize: "0.9rem", color: "var(--text-primary)", fontWeight: 600 }}>{currentSession.subject}</div>
                 </div>
                 <div>
-                  <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "0.6rem", color: "var(--text-muted)", letterSpacing: "0.1em", marginBottom: "0.15rem" }}>CLASS</div>
-                  <div style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.9rem", color: "var(--text-primary)", fontWeight: 600 }}>{currentSession.className}</div>
+                  <div style={{ fontFamily: "inherit", fontSize: "0.6rem", color: "var(--text-muted)", letterSpacing: "0.1em", marginBottom: "0.15rem" }}>CLASS</div>
+                  <div style={{ fontFamily: "inherit", fontSize: "0.9rem", color: "var(--text-primary)", fontWeight: 600 }}>{currentSession.className}</div>
                 </div>
                 <div>
-                  <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "0.6rem", color: "var(--text-muted)", letterSpacing: "0.1em", marginBottom: "0.15rem" }}>EXPIRES</div>
-                  <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "0.85rem", color: "var(--gold-bright)", fontWeight: 600 }}>
+                  <div style={{ fontFamily: "inherit", fontSize: "0.6rem", color: "var(--text-muted)", letterSpacing: "0.1em", marginBottom: "0.15rem" }}>EXPIRES</div>
+                  <div style={{ fontFamily: "inherit", fontSize: "0.85rem", color: "var(--gold-bright)", fontWeight: 600 }}>
                     {new Date(currentSession.expiresAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                   </div>
                 </div>
@@ -271,7 +271,7 @@ const FacultyDashboard = () => {
                 {isCreating ? (
                   <><Spinner /><span style={{ marginLeft: 8 }}>Fetching Location…</span></>
                 ) : (
-                  "▶ Generate Session Key"
+                  "Generate Session Key"
                 )}
               </button>
             ) : (
@@ -329,19 +329,19 @@ const FacultyDashboard = () => {
                 ].map(({ label, value, color }) => (
                   <div key={label} style={{
                     background: "rgba(0,0,0,0.5)",
-                    border: "1px solid rgba(251,191,36,0.08)",
+                    border: "1px solid rgba(79,70,229,0.08)",
                     borderRadius: "4px",
                     padding: "0.6rem",
                     textAlign: "center"
                   }}>
                     <div style={{
-                      fontFamily: "'Orbitron', monospace",
+                      fontFamily: "inherit",
                       fontSize: typeof value === "number" ? "1.4rem" : "0.75rem",
                       fontWeight: 700, color,
                       lineHeight: 1.1
                     }}>{value}</div>
                     <div style={{
-                      fontFamily: "'Rajdhani', sans-serif",
+                      fontFamily: "inherit",
                       fontSize: "0.62rem", color: "var(--text-muted)",
                       textTransform: "uppercase", letterSpacing: "0.08em",
                       marginTop: "0.2rem"
@@ -362,7 +362,7 @@ const FacultyDashboard = () => {
 
               {/* Auto-refresh note */}
               <div style={{
-                fontFamily: "'Rajdhani', sans-serif",
+                fontFamily: "inherit",
                 fontSize: "0.68rem", color: "var(--text-muted)",
                 letterSpacing: "0.05em", marginBottom: "0.5rem",
                 display: "flex", alignItems: "center", gap: "0.4rem"
@@ -383,10 +383,10 @@ const FacultyDashboard = () => {
                   <tbody>
                     {liveStudents && liveStudents.map((s, i) => (
                       <tr key={s.rollNo}>
-                        <td style={{ color: "var(--text-muted)", fontFamily: "'Orbitron', monospace", fontSize: "0.68rem" }}>{i + 1}</td>
-                        <td style={{ fontFamily: "'Rajdhani', sans-serif" }}>{s.rollNo}</td>
-                        <td style={{ fontFamily: "'Rajdhani', sans-serif" }}>{s.name}</td>
-                        <td style={{ fontFamily: "'Rajdhani', sans-serif", color: "var(--text-muted)" }}>{s.markedAt}</td>
+                        <td style={{ color: "var(--text-muted)", fontFamily: "inherit", fontSize: "0.68rem" }}>{i + 1}</td>
+                        <td style={{ fontFamily: "inherit" }}>{s.rollNo}</td>
+                        <td style={{ fontFamily: "inherit" }}>{s.name}</td>
+                        <td style={{ fontFamily: "inherit", color: "var(--text-muted)" }}>{s.markedAt}</td>
                       </tr>
                     ))}
                     {(!liveStudents || liveStudents.length === 0) && (
@@ -404,7 +404,7 @@ const FacultyDashboard = () => {
             <div className="empty-state">
               <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>📋</div>
               <div style={{
-                fontFamily: "'Orbitron', monospace",
+                fontFamily: "inherit",
                 fontSize: "0.75rem", letterSpacing: "0.08em",
                 color: "var(--text-muted)", marginBottom: "0.5rem"
               }}>NO ACTIVE SESSION</div>

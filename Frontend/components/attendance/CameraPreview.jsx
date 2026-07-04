@@ -4,7 +4,8 @@ import Spinner from "../common/Spinner.jsx";
 
 const CameraPreview = forwardRef(({ onStreamReady, onError }, ref) => {
   const videoRef = useRef(null);
-  const [isInitializing, setIsInitializing] = useState(false);
+  const streamRef = useRef(null);
+  const [isInitializing, setIsInitializing] = useState(true);
   const [cameraError, setCameraError] = useState("");
 
   useImperativeHandle(ref, () => ({
@@ -37,7 +38,7 @@ const CameraPreview = forwardRef(({ onStreamReady, onError }, ref) => {
   }));
 
   useEffect(() => {
-    let stream;
+    let cancelled = false;
 
     const enableCamera = async () => {
       try {
@@ -48,48 +49,68 @@ const CameraPreview = forwardRef(({ onStreamReady, onError }, ref) => {
           throw new Error("Camera API not supported in this browser.");
         }
 
-        stream = await navigator.mediaDevices.getUserMedia({
+        const stream = await navigator.mediaDevices.getUserMedia({
           video: { facingMode: "user" },
           audio: false
         });
 
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-          await videoRef.current.play();
+        if (cancelled) {
+          stream.getTracks().forEach((t) => t.stop());
+          return;
         }
 
-        if (onStreamReady) {
-          onStreamReady(stream);
+        streamRef.current = stream;
+
+        // The <video> element is always mounted, so the ref is available here.
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          try {
+            await videoRef.current.play();
+          } catch (_) {
+            /* autoplay can be interrupted — the feed still binds */
+          }
         }
+
+        if (onStreamReady) onStreamReady(stream);
       } catch (err) {
-        const message =
-          err?.message || "Unable to access camera. Please check permissions.";
-        setCameraError(message);
-        if (onError) onError(message);
+        const message = err?.message || "Unable to access camera. Please check permissions.";
+        if (!cancelled) {
+          setCameraError(message);
+          if (onError) onError(message);
+        }
       } finally {
-        setIsInitializing(false);
+        if (!cancelled) setIsInitializing(false);
       }
     };
 
     enableCamera();
 
     return () => {
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
+      cancelled = true;
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach((track) => track.stop());
+        streamRef.current = null;
       }
     };
   }, [onStreamReady, onError]);
 
   return (
     <div className="camera-preview">
-      {isInitializing && (
-        <div className="flex-gap-md">
+      {/* Always mounted so the stream can bind immediately */}
+      <video ref={videoRef} autoPlay muted playsInline />
+
+      {isInitializing && !cameraError && (
+        <div
+          className="flex-gap-md"
+          style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
+        >
           <Spinner />
           <span>Requesting camera access…</span>
         </div>
       )}
-      {!isInitializing && <video ref={videoRef} muted playsInline />}
+
       <div className="camera-overlay" />
+
       {cameraError && (
         <div
           style={{
@@ -100,7 +121,7 @@ const CameraPreview = forwardRef(({ onStreamReady, onError }, ref) => {
             fontSize: "0.75rem",
             color: "#fecaca",
             background: "rgba(15,23,42,0.85)",
-            padding: "0.3rem 0.45rem",
+            padding: "0.4rem 0.55rem",
             borderRadius: "0.5rem"
           }}
         >
@@ -112,6 +133,3 @@ const CameraPreview = forwardRef(({ onStreamReady, onError }, ref) => {
 });
 
 export default CameraPreview;
-
-
-

@@ -24,14 +24,14 @@ const SectionTitle = ({ icon, title, desc }) => (
     }}>
       <span style={{ fontSize: "1.2rem" }}>{icon}</span>
       <div style={{
-        fontFamily: "'Orbitron', monospace",
+        fontFamily: "inherit",
         fontSize: "1rem", fontWeight: 700,
         color: "var(--text-primary)", letterSpacing: "0.06em",
         textTransform: "uppercase"
       }}>{title}</div>
     </div>
     <div style={{
-      fontFamily: "'Rajdhani', sans-serif",
+      fontFamily: "inherit",
       fontSize: "0.82rem", color: "var(--text-muted)"
     }}>{desc}</div>
   </div>
@@ -61,7 +61,7 @@ const TabBar = ({ tabs, active, onChange }) => (
             ? "linear-gradient(135deg, var(--gold-deep), var(--gold-mid))"
             : "transparent",
           color: active === t.key ? "var(--black-pure)" : "var(--text-muted)",
-          fontFamily: "'Rajdhani', sans-serif",
+          fontFamily: "inherit",
           fontWeight: 700,
           fontSize: "0.78rem",
           letterSpacing: "0.08em",
@@ -269,7 +269,7 @@ const AdminDashboard = () => {
     return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "60vh", gap: "1rem" }}>
         <Spinner />
-        <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "0.75rem", color: "var(--text-muted)", letterSpacing: "0.15em" }}>LOADING ADMIN DASHBOARD…</div>
+        <div style={{ fontFamily: "inherit", fontSize: "0.75rem", color: "var(--text-muted)", letterSpacing: "0.15em" }}>LOADING ADMIN DASHBOARD…</div>
       </div>
     );
   }
@@ -416,7 +416,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary btn-block">▶ Add Student</button>
+              <button type="submit" className="btn btn-primary btn-block">Add Student</button>
             </form>
           </div>
 
@@ -440,8 +440,8 @@ const AdminDashboard = () => {
                 <tbody>
                   {students.map((s) => (
                     <tr key={s._id}>
-                      <td style={{ fontFamily: "'Orbitron', monospace", fontSize: "0.7rem", color: "var(--gold-mid)" }}>{s.rollNo || "—"}</td>
-                      <td style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600 }}>{s.name}</td>
+                      <td style={{ fontFamily: "inherit", fontSize: "0.7rem", color: "var(--gold-mid)" }}>{s.rollNo || "—"}</td>
+                      <td style={{ fontFamily: "inherit", fontWeight: 600 }}>{s.name}</td>
                       <td className="email-cell">{s.email || s.rollNo}</td>
                       <td>
                         {s.faceImages?.length > 0 ? (
@@ -537,7 +537,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary btn-block">▶ Add Faculty</button>
+              <button type="submit" className="btn btn-primary btn-block">Add Faculty</button>
             </form>
           </div>
 
@@ -560,8 +560,8 @@ const AdminDashboard = () => {
                 <tbody>
                   {faculty.map((f) => (
                     <tr key={f._id}>
-                      <td style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600 }}>{f.name}</td>
-                      <td style={{ fontFamily: "'Rajdhani', sans-serif", color: "var(--gold-mid)" }}>{f.subject}</td>
+                      <td style={{ fontFamily: "inherit", fontWeight: 600 }}>{f.name}</td>
+                      <td style={{ fontFamily: "inherit", color: "var(--gold-mid)" }}>{f.subject}</td>
                       <td className="email-cell">{f.email}</td>
                       <td>
                         <div style={{ display: "flex", gap: "0.4rem" }}>
@@ -612,7 +612,7 @@ const AdminDashboard = () => {
                 <input className="input-field" placeholder="e.g. 2nd Floor" value={newClassroom.floor}
                   onChange={(e) => setNewClassroom({ ...newClassroom, floor: e.target.value })} />
               </div>
-              <button type="submit" className="btn btn-primary btn-block">▶ Add Classroom</button>
+              <button type="submit" className="btn btn-primary btn-block">Add Classroom</button>
             </form>
           </div>
 
@@ -646,7 +646,7 @@ const AdminDashboard = () => {
                         <img key={i} src={img} alt="" style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "4px", border: "1px solid var(--holo-border)" }} />
                       ))}
                       {c.referenceImages.length > 5 && (
-                        <div style={{ width: "50px", height: "50px", background: "rgba(251,191,36,0.1)", border: "1px solid var(--holo-border)", borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Orbitron', monospace", fontSize: "0.7rem", color: "var(--gold-mid)" }}>
+                        <div style={{ width: "50px", height: "50px", background: "rgba(79,70,229,0.1)", border: "1px solid var(--holo-border)", borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "inherit", fontSize: "0.7rem", color: "var(--gold-mid)" }}>
                           +{c.referenceImages.length - 5}
                         </div>
                       )}
@@ -718,12 +718,12 @@ const AdminDashboard = () => {
               <tbody>
                 {attendanceRecords.map((r, i) => (
                   <tr key={r._id || i}>
-                    <td style={{ color: "var(--text-muted)", fontFamily: "'Orbitron', monospace", fontSize: "0.65rem" }}>{i + 1}</td>
-                    <td style={{ fontFamily: "'Rajdhani', sans-serif" }}>{r.date}</td>
-                    <td style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600 }}>{r.studentName}</td>
-                    <td style={{ fontFamily: "'Orbitron', monospace", fontSize: "0.7rem", color: "var(--gold-mid)" }}>{r.rollNo}</td>
-                    <td style={{ fontFamily: "'Rajdhani', sans-serif" }}>{r.subject}</td>
-                    <td style={{ fontFamily: "'Rajdhani', sans-serif" }}>{r.className}</td>
+                    <td style={{ color: "var(--text-muted)", fontFamily: "inherit", fontSize: "0.65rem" }}>{i + 1}</td>
+                    <td style={{ fontFamily: "inherit" }}>{r.date}</td>
+                    <td style={{ fontFamily: "inherit", fontWeight: 600 }}>{r.studentName}</td>
+                    <td style={{ fontFamily: "inherit", fontSize: "0.7rem", color: "var(--gold-mid)" }}>{r.rollNo}</td>
+                    <td style={{ fontFamily: "inherit" }}>{r.subject}</td>
+                    <td style={{ fontFamily: "inherit" }}>{r.className}</td>
                     <td>
                       <span className={`chip ${r.status === "Present" ? "chip-success" : "chip-danger"}`}>
                         {r.status}

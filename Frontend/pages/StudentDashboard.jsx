@@ -13,11 +13,11 @@ const LoadingBar = ({ stage, message }) => {
     <div style={{ marginTop: "0.75rem" }}>
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.3rem" }}>
         <span style={{
-          fontFamily: "'Rajdhani', sans-serif", fontSize: "0.72rem",
+          fontFamily: "inherit", fontSize: "0.72rem",
           color: "var(--text-muted)", letterSpacing: "0.05em"
         }}>{message}</span>
         <span style={{
-          fontFamily: "'Orbitron', monospace", fontSize: "0.65rem",
+          fontFamily: "inherit", fontSize: "0.65rem",
           color: "var(--gold-mid)"
         }}>{pct}%</span>
       </div>
@@ -264,7 +264,7 @@ const StudentDashboard = () => {
         marginBottom: "1.5rem",
         display: "flex", alignItems: "center", gap: "1rem",
         paddingBottom: "1rem",
-        borderBottom: "1px solid rgba(251,191,36,0.1)"
+        borderBottom: "1px solid rgba(79,70,229,0.1)"
       }}>
         <div style={{
           width: "44px", height: "44px",
@@ -276,7 +276,7 @@ const StudentDashboard = () => {
         }}>🎓</div>
         <div>
           <div style={{
-            fontFamily: "'Orbitron', monospace",
+            fontFamily: "inherit",
             fontSize: "1.1rem", fontWeight: 700,
             color: "var(--gold-bright)",
             letterSpacing: "0.06em"
@@ -284,7 +284,7 @@ const StudentDashboard = () => {
             {currentUser ? `Welcome, ${currentUser.name}` : "Student Portal"}
           </div>
           <div style={{
-            fontFamily: "'Rajdhani', sans-serif",
+            fontFamily: "inherit",
             fontSize: "0.78rem", color: "var(--text-muted)",
             letterSpacing: "0.05em", textTransform: "uppercase"
           }}>MarkMe · Smart Attendance</div>
@@ -334,12 +334,12 @@ const StudentDashboard = () => {
               }}>
                 <div style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>✅</div>
                 <div style={{
-                  fontFamily: "'Orbitron', monospace",
+                  fontFamily: "inherit",
                   fontSize: "0.8rem", fontWeight: 600,
                   color: "#4ade80", letterSpacing: "0.08em",
                   marginBottom: "0.25rem"
                 }}>IDENTITY CONFIRMED</div>
-                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontFamily: "'Rajdhani', sans-serif" }}>
+                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontFamily: "inherit" }}>
                   Face snapshot captured. Camera disabled.
                 </div>
                 <button
@@ -356,7 +356,7 @@ const StudentDashboard = () => {
           {loadingStage === 4 && (
             <div style={{
               textAlign: "center", marginTop: "0.6rem",
-              fontFamily: "'Orbitron', monospace",
+              fontFamily: "inherit",
               fontSize: "0.65rem", letterSpacing: "0.12em",
               color: faceVerified ? "#4ade80" : "var(--text-muted)",
               textTransform: "uppercase"
@@ -366,18 +366,18 @@ const StudentDashboard = () => {
           {/* Demo mode banner */}
           {currentUser && isDemoUser(currentUser) && (
             <div style={{
-              background: "rgba(251,191,36,0.08)",
-              border: "1px dashed rgba(251,191,36,0.4)",
+              background: "rgba(79,70,229,0.08)",
+              border: "1px dashed rgba(79,70,229,0.4)",
               borderRadius: "6px",
               padding: "0.75rem 1rem",
               marginTop: "0.75rem",
               display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.75rem",
             }}>
               <div>
-                <div style={{ fontFamily: "'Orbitron', monospace", fontSize: "0.65rem", color: "var(--gold-bright)", letterSpacing: "0.12em", marginBottom: "0.2rem" }}>
+                <div style={{ fontFamily: "inherit", fontSize: "0.65rem", color: "var(--gold-bright)", letterSpacing: "0.12em", marginBottom: "0.2rem" }}>
                   ⚡ DEMO MODE
                 </div>
-                <div style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.72rem", color: "var(--text-muted)" }}>
+                <div style={{ fontFamily: "inherit", fontSize: "0.72rem", color: "var(--text-muted)" }}>
                   Face &amp; GPS auto-bypassed · Session key: <strong style={{ color: "var(--gold-bright)" }}>123456</strong>
                 </div>
               </div>
@@ -385,7 +385,7 @@ const StudentDashboard = () => {
                 <button
                   className="btn btn-sm"
                   onClick={handleDemoVerify}
-                  style={{ background: "rgba(251,191,36,0.15)", border: "1px solid rgba(251,191,36,0.4)", color: "var(--gold-bright)", fontFamily: "'Rajdhani', sans-serif", fontSize: "0.78rem", whiteSpace: "nowrap" }}
+                  style={{ background: "rgba(79,70,229,0.15)", border: "1px solid rgba(79,70,229,0.4)", color: "var(--gold-bright)", fontFamily: "inherit", fontSize: "0.78rem", whiteSpace: "nowrap" }}
                 >
                   ⚡ Auto-Verify
                 </button>
@@ -403,7 +403,7 @@ const StudentDashboard = () => {
             ) : faceVerified ? (
               "✓ Verified"
             ) : (
-              "▶ Verify Face"
+              "Verify Face"
             )}
           </button>
 
@@ -440,7 +440,7 @@ const StudentDashboard = () => {
               display: "flex", flexDirection: "column", gap: "0.4rem",
               marginBottom: "1rem", padding: "0.75rem",
               background: "rgba(0,0,0,0.4)",
-              border: "1px solid rgba(251,191,36,0.08)",
+              border: "1px solid rgba(79,70,229,0.08)",
               borderRadius: "4px"
             }}>
               {[
@@ -456,7 +456,7 @@ const StudentDashboard = () => {
                     flexShrink: 0
                   }} />
                   <span style={{
-                    fontFamily: "'Rajdhani', sans-serif",
+                    fontFamily: "inherit",
                     fontSize: "0.75rem",
                     color: ok ? "#4ade80" : "var(--text-muted)",
                     letterSpacing: "0.05em",
@@ -474,7 +474,7 @@ const StudentDashboard = () => {
                 onChange={(e) => setSessionKey(e.target.value.replace(/\D/g, "").slice(0, 6))}
                 placeholder="e.g. 482193"
                 style={{
-                  fontFamily: "'Orbitron', monospace",
+                  fontFamily: "inherit",
                   fontSize: "1.4rem",
                   fontWeight: 700,
                   letterSpacing: "0.2em",
@@ -497,7 +497,7 @@ const StudentDashboard = () => {
               {isMarking ? (
                 <><Spinner /><span style={{ marginLeft: 8 }}>Marking Attendance…</span></>
               ) : (
-                "▶ Mark Attendance"
+                "Mark Attendance"
               )}
             </button>
 
@@ -511,7 +511,7 @@ const StudentDashboard = () => {
                 textAlign: "center"
               }}>
                 <div style={{
-                  fontFamily: "'Orbitron', monospace",
+                  fontFamily: "inherit",
                   fontSize: "0.75rem", fontWeight: 600,
                   color: "#4ade80", letterSpacing: "0.08em"
                 }}>✓ ATTENDANCE RECORDED</div>
@@ -550,8 +550,8 @@ const StudentDashboard = () => {
                 <tbody>
                   {attendanceHistory.map((row, i) => (
                     <tr key={`${row.date}-${row.subject}-${i}`}>
-                      <td style={{ fontFamily: "'Rajdhani', sans-serif" }}>{row.date}</td>
-                      <td style={{ fontFamily: "'Rajdhani', sans-serif" }}>{row.subject}</td>
+                      <td style={{ fontFamily: "inherit" }}>{row.date}</td>
+                      <td style={{ fontFamily: "inherit" }}>{row.subject}</td>
                       <td>
                         <span className={`chip ${row.status === "Present" ? "chip-success" : "chip-danger"}`}>
                           {row.status}

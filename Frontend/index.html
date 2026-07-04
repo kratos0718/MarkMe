@@ -15,96 +15,57 @@
       #splash {
         position: fixed;
         inset: 0;
-        background: #050505;
+        background: #f6f7f9;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 9999;
-        transition: opacity 0.6s ease, visibility 0.6s ease;
-        gap: 1.5rem;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        gap: 1.25rem;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       }
       #splash.hidden { opacity: 0; visibility: hidden; }
 
       .splash-logo {
-        font-family: 'Courier New', monospace;
-        font-size: 2.2rem;
-        font-weight: 900;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        background: linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: shimmerSplash 1.5s linear infinite;
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #0f172a;
       }
       .splash-sub {
-        font-family: 'Courier New', monospace;
-        font-size: 0.72rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: #7a6a4f;
+        font-size: 0.85rem;
+        color: #64748b;
       }
       .splash-bar-wrap {
-        width: 200px;
-        height: 2px;
-        background: rgba(251,191,36,0.1);
-        border-radius: 1px;
+        width: 180px;
+        height: 4px;
+        background: #e5e7eb;
+        border-radius: 999px;
         overflow: hidden;
       }
       .splash-bar {
         height: 100%;
-        background: linear-gradient(90deg, #d97706, #fbbf24);
-        animation: loadBar 1.8s ease forwards;
-        box-shadow: 0 0 8px rgba(251,191,36,0.5);
-      }
-      @keyframes shimmerSplash {
-        0%   { background-position: -200% center; }
-        100% { background-position: 200% center; }
+        background: #4f46e5;
+        border-radius: 999px;
+        animation: loadBar 1.6s ease forwards;
       }
       @keyframes loadBar {
         0%   { width: 0%; }
         60%  { width: 80%; }
         100% { width: 100%; }
       }
-
-      /* Grid overlay on splash */
-      #splash::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(251,191,36,0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(251,191,36,0.04) 1px, transparent 1px);
-        background-size: 60px 60px;
-      }
     </style>
   </head>
   <body>
     <!-- Splash / Boot screen -->
     <div id="splash">
-      <svg width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:0.5rem">
-        <defs>
-          <radialGradient id="s-bg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#1a0533"/><stop offset="100%" stop-color="#08000f"/></radialGradient>
-          <radialGradient id="s-face" cx="42%" cy="38%" r="60%"><stop offset="0%" stop-color="#9333ea"/><stop offset="55%" stop-color="#5b21b6"/><stop offset="100%" stop-color="#1e0547"/></radialGradient>
-          <linearGradient id="s-pin" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#ea580c"/></linearGradient>
-        </defs>
-        <circle cx="60" cy="60" r="58" fill="url(#s-bg)"/>
-        <circle cx="60" cy="60" r="54" fill="none" stroke="#4c1d95" stroke-width="0.8" opacity="0.5"/>
-        <circle cx="60" cy="60" r="47" fill="none" stroke="#6d28d9" stroke-width="0.8" opacity="0.4"/>
-        <circle cx="60" cy="60" r="40" fill="none" stroke="#7c3aed" stroke-width="0.7" stroke-dasharray="4 5" opacity="0.35"/>
-        <circle cx="55" cy="56" r="27" fill="url(#s-face)"/>
-        <line x1="31" y1="56" x2="79" y2="56" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-dasharray="3 3"/>
-        <path d="M 42 55 L 51 65 L 69 44" stroke="white" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M 74 63 C 74 52 89 52 89 63 C 89 71 81.5 80 81.5 80 C 81.5 80 74 71 74 63 Z" fill="url(#s-pin)"/>
-        <circle cx="81.5" cy="62" r="4.5" fill="white" opacity="0.9"/>
-        <circle cx="37" cy="35" r="2.5" fill="#22d3ee" opacity="0.9"/>
-        <circle cx="79" cy="31" r="2" fill="#fbbf24" opacity="0.9"/>
-        <circle cx="27" cy="63" r="1.8" fill="#ec4899" opacity="0.85"/>
+      <svg width="56" height="56" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="44" height="44" rx="12" fill="#4f46e5"/>
+        <path d="M13 24.5 L20.5 32 L35 16" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <div class="splash-logo">MARKME</div>
-      <div class="splash-sub">Smart Attendance · Initializing</div>
+      <div class="splash-logo">MarkMe</div>
+      <div class="splash-sub">Smart Attendance</div>
       <div class="splash-bar-wrap">
         <div class="splash-bar"></div>
       </div>

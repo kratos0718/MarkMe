@@ -2,7 +2,7 @@
   "name": "markme-frontend",
   "version": "2.0.0",
   "private": true,
-  "description": "MarkMe — Smart Attendance System by Abhinav Tarigoopula. React, holographic gold UI.",
+  "description": "MarkMe — Smart Attendance System. React, clean light UI.",
   "scripts": {
     "start": "webpack serve --mode development --host 0.0.0.0 --open",
     "dev": "npm run start",
